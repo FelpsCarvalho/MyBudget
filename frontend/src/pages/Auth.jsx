@@ -6,6 +6,9 @@ import { Title } from "../components/Titles/Titles";
 import { useState, useEffect } from "react";
 
 import { useLoginUser, useRegisterUser } from "../queries/user";
+import { Navigate, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
+import { useContext } from "react";
 
 const Auth = () => {
   //LOGIN
@@ -14,6 +17,10 @@ const Auth = () => {
   //REGISTER
   const [regEmail, setRegEmail] = useState("");
   const [regPw, setRegPw] = useState("");
+  //CONTEXT
+  const {auth, setAuth} = useContext(AuthContext);
+  //NAVIGATE
+  const navigate = useNavigate();
 
   let body = {
     email: email,
@@ -38,6 +45,10 @@ const Auth = () => {
     error: registerErr,
   } = useRegisterUser();
 
+  useEffect(()=>{
+    if(auth) navigate("/")
+  })
+
   return (
     <MainContainer>
       {/* LOGIN */}
@@ -60,7 +71,12 @@ const Auth = () => {
           />
 
           {/* LOGIN BTN */}
-          <button>Login</button>
+          <button onClick={() => loginHandler(body, {
+            onError:()=>{
+              console.log(loginErr)
+            },
+            onSuccess:()=>setAuth(true)
+          })}>Login</button>
         </div>
       </form>
 
@@ -88,7 +104,15 @@ const Auth = () => {
           />
 
           {/* REGISTER BTN */}
-          <button onClick={() => registerHandler(regBody)}>Cadastrar</button>
+          <button onClick={() => registerHandler(regBody, {
+            //ONSUCCESS USE LOGINHANDLER
+            onSuccess: () => {
+              loginHandler(regBody, {
+                onSuccess:()=>setAuth(true),
+                onError:()=>{console.log(loginErr);},
+              });
+            },
+          })}>Cadastrar</button>
           {/* ADD ERROR */}
         </div>
       </form>

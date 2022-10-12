@@ -8,7 +8,7 @@ const Searchbar = () => {
             <div className={styles.inner}>
                 <div className={styles.searchContainer}>
                     <FiSearch />
-                    <input type="text" placeholder="Search" />
+                    <input type="text" placeholder="Pesquisar" />
                 </div>
 
                 <div className={styles.menuLink}>
