@@ -28,7 +28,7 @@ const CategoryIcon = ({ category }) => {
                 };
             }
 
-            case "Entretenimento":
+            case "Lazer":
                 return {
                     background: "#e4f1d5",
                     icon: <IoGameControllerOutline />,
