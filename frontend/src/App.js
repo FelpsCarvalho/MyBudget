@@ -15,6 +15,7 @@ import Home from "./pages/Home";
 import Settings from "./pages/Settings";
 import Profile from "./pages/Profile";
 import Transactions from "./pages/Transactions";
+import Categories from "./pages/Categories";
 
 //REACT QUERY
 import { ReactQueryDevtools } from "react-query/devtools";
@@ -44,6 +45,8 @@ function App() {
                 <Route path="/profile" element={<Profile />} />
                 {/* TRANSACTIONS */}
                 <Route path="/transactions" element={<Transactions />} />
+                {/* CATEGORIES */}
+                <Route path="/categories" element={<Categories />} />
 
                 {/* 404 */}
                 <Route

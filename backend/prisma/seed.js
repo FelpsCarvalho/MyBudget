@@ -11,7 +11,7 @@ const seed = async () => {
                     data: [
                         { name: "Produtos" },
                         { name: "Lazer" },
-                        { name: "Contas "},
+                        { name: "Contas"},
                         { name: "Outros" },
                     ],
                     skipDuplicates: true,

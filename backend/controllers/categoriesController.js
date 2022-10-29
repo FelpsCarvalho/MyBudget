@@ -23,9 +23,9 @@ const categories_get = async(req, res) => {
 };
 
 const categories_transaction_sum = async (req, res) => {
-    if(req.session(userId)){
+    if(req.session.userId){
         let firstDate = req.query.firstDate;
-        let lastDate = DataTime.now().toISO();
+        let lastDate = DateTime.now().toISO();
 
         if(!firstDate){
             firstDate = DateTime.now().minus({ month: 1}).toISO();

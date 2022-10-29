@@ -29,12 +29,13 @@ const CategoryCard = ({ category, money }) => {
             }
 
             case "Lazer":
-            case 2:
+            case 2:{
                 return {
                     ctg: "Lazer",
                     icon: <IoGameControllerOutline style={{ color: "#e4f1d5" }} />,
                     background: "#92c44c",
                 };
+            }
 
             case "Contas":
             case 3: {

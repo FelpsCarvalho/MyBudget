@@ -27,15 +27,14 @@ const CategoryIcon = ({ category }) => {
                     color: "#f8aa35",
                 };
             }
-
-            case "Lazer":
+            case "Lazer":{
                 return {
                     background: "#e4f1d5",
                     icon: <IoGameControllerOutline />,
                     color: "#92c44c",
                 };
-
-            case "Contas": {
+            }
+            case "Contas":{
                 return {
                     background: "#b7dffd",
                     icon: <BsHouseDoor />,
