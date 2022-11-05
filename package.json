@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "",
   "scripts": {
-      "start": "npm start --prefix server",
-      "install-client": "cd frontend && npm install && npm run start",
-      "install-server": "cd backend && npm install && npm run build",
+      "server": "cd backend && node server.js",
+      "frontend": "cd frontend && npm run start",
+      "start": "cd backend && concurrently \"npm run server\" \"npm run frontend\"",
+      "install-client": "cd frontend && npm install",
+      "install-server": "cd backend && npm install",
       "heroku-postbuild": "npm run install-client && npm run install-server"
   }
 }
