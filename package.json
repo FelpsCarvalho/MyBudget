@@ -1,11 +1,11 @@
 {
   "name": "mybudget",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+      "start": "npm start --prefix server",
+      "install-client": "cd frontend && npm install && npm run start",
+      "install-server": "cd backend && npm install && npm run build",
+      "heroku-postbuild": "npm run install-client && npm run install-server"
+  }
 }
