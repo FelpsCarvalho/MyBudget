@@ -5,7 +5,7 @@
   "scripts": {
       "server": "cd backend && node server.js",
       "frontend": "cd frontend && npm run start",
-      "start": "cd backend && npm run dev",
+      "start": "cd backend && npm run buildClient",
       "install-client": "cd frontend && npm install",
       "install-server": "cd backend && npm install",
       "heroku-postbuild": "npm run install-client && npm run install-server"
